@@ -5,6 +5,7 @@
 
 from nzmath import prime
 from pprint import pprint
+from decimal import Decimal
 import argparse
 
 parser = argparse.ArgumentParser(description='Find some primes or somethings')
@@ -21,11 +22,4 @@ for i in range(args.start,args.start+args.range):
     primed = prime.bigprimeq(i)
     if primed:
         primes.append("Is prime:"+str(i**3-((i-1)**3)))
-
-#pprint(primes)
-total_primes = len(primes)
-#print("Total primes found:"+str(total_primes))
-#print("Total samples not prime:"+str(args.range-(len(primes))))
-ratio = float(total_primes)/args.range
-#print("Ratio of primes to not:"+str(ratio))
-print(str(args.range) + ":" + str(ratio))
+    print(str(i) + ":" + str(Decimal(len(primes))/i))
